@@ -538,3 +538,24 @@ textarea.form-input {
   flex: 100%;
   max-width: 100%;
 }
+
+.flexbox_caja_filtro{
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.caja_filtro{
+  display: flex;
+  flex-direction: column;
+}
+
+.caja_filtro li a{
+background-color: white;
+color: black;
+padding: 4px;
+margin: 4px;
+border-radius: 3px;
+
+
+}

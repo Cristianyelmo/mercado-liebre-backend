@@ -3,23 +3,129 @@ const path = require('path');
 
  const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8')); 
-let minmax  = true
-let ofertas = true
 
 
 
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const toThousand =n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+const writeJson=( data ={})=> fs.writeFileSync(path.join(__dirname,"../data/queries.json"),JSON.stringify(data),"utf-8");
+
+
+
+
+
+
+
+
 
 const controller = {
 
 	
 	// Root - Show all products
+	
+
 	index: (req, res) => {
-		minmax=true
-		ofertas = false
-		res.render('products',{
-			products,minmax,toThousand,ofertas
+		if(!req.query.order && !req.query.state && !req.query.category){
+			writeJson();  
+
+
+		}
+
+		let queries = require('../data/queries.json');
+
+		
+		
+		writeJson({...queries, ...req.query})
+
+		
+		
+		
+
+		
+		
+
+		const{order,state,category} ={...queries, ...req.query}
+
+
+let allproducts = products;
+
+
+
+
+if(category){
+
+	
+	
+	
+	
+	allproducts = allproducts.filter((products)=>{
+ return products.category === category
+
+
+	})
+}
+
+
+
+
+if(order){
+	
+	
+	
+	
+	if(order === "asc"){
+		
+		
+		
+
+		allproducts = allproducts.sort((before,after)=>{
+		return before.price - after.price;
+		
+		
 		})
+
+		
+
+	}else {
+	
+		allproducts = allproducts.sort((before,after)=>{
+			return after.price - before.price;
+			
+			
+			})
+	
+	
+	}
+
+
+
+}
+
+
+
+
+
+if(state){
+	
+	
+
+	allproducts = allproducts.filter((product)=>{
+	return product.state === state
+	
+	
+	})
+
+}
+
+
+
+
+		
+		res.render('products',{
+			products:allproducts,
+			queries:{...queries, ...req.query}
+		})
+            
 	},
 
 	// Detail - Detail from one product
@@ -31,7 +137,7 @@ const encontrar = products.find(producto =>
 	producto.id === +Idrequerido
 )
 
-const productoRelacionados = products.filter(prod => prod.category === encontrar.category && prod.id !== encontrar.id )
+const productoRelacionados = products.filter(prod => prod.state === encontrar.state && prod.id !== encontrar.id )
 	return res.render('detail',{
 
 			 ...encontrar,
@@ -174,167 +280,7 @@ fs.writeFileSync('./src/data/productsDataBase.json',JSON.stringify(productoElimi
 
 	
 	
-	filtrarOrden:(req,res) =>{
-
-		const {type} =req.params
-        
-		const ProductoOrd =   products.sort((prevProduct,nextProduct) => {
-		
-					if(type === "min"){
-		
-				return   prevProduct.price - nextProduct.price
-		
-				} else {
-		
-				return    nextProduct.price - prevProduct.price
-				}
-		
-				}
-		
-				)  
-
-				minmax=true
-				ofertas = false
-		
-				res.render('products', {
-					ProductoOrd,
-					products,minmax,ofertas
-
-					
-				  })
-		  
-
-
-
-
-	},
-Uvisita:(req,res) =>{
-	let visita = products
-	const {intento} =req.params
-if(intento === "ultima"){
 	
-	
-	
-visita =products.filter(prod => prod.category === "visited")
-
-	
-	
-minmax=false
-ofertas = false
-
-
-} 
-
-
-
-if(intento === "ofertas"){
-	
-	visita =products.filter(prod => prod.category === "in-sale")
-	
-	
-	
-	
-	minmax=false
-ofertas = true
-
-} 
-
-
-if(intento === "ultimamin"){
-	visita = products.filter(prod => prod.category === "visited")
-	visita.sort((prevProduct,nextProduct) => {
-		
-	return   prevProduct.price - nextProduct.price
-
-
-})
-
-	
-	} 
-	
-	
-if(intento === "ultimamax") {
-		visita = products.filter(prod => prod.category === "visited")
-	visita.sort((prevProduct,nextProduct) => {
-		
-	return   nextProduct.price - prevProduct.price
-
-})
-
-
-	
-	}
- 
-
-	if(intento === "filtromin"){
-		visita = products.filter(prod => prod.category === "in-sale")
-		visita.sort((prevProduct,nextProduct) => {
-			
-		return   prevProduct.price - nextProduct.price
-	
-	})
-	
-		
-		} 
-		
-if(intento === "filtromax") {
-			visita = products.filter(prod => prod.category === "in-sale")
-		visita.sort((prevProduct,nextProduct) => {
-			
-		return   nextProduct.price - prevProduct.price
-	
-	})
-	
-
-		
-		}
-
-		
-		
-		if(intento === "hogar"){
-
-			visita = products.filter(prod => prod.categoria === "Hogar")
-			
-			
-
-		}
-
-		if(intento === "musica"){
-
-			visita = products.filter(prod => prod.categoria === "musica")
-			
-		
-		}
-
-		if(intento === "electronica"){
-
-			visita = products.filter(prod => prod.categoria === "electronica")
-			
-		
-		}
-
-
-
-		if(intento === "categoria+ofertas"){
-			
-			visita = products.filter(prod => prod.categoria === "musica" && prod.category === "in-sale")
-
-			
-			
-			
-		}
-		
-		
-		res.render('products',{
-	
-	
-	products:visita,minmax,ofertas
-			
-		})
-
-
-
-	},
 
 	
 	

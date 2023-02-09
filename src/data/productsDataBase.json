@@ -6,8 +6,8 @@
       "price": 20,
       "discount": 0,
       "image": "img-cafetera-moulinex.jpg",
-      "category": "",
-      "categoria" : "Hogar"
+      "state": "",
+      "category" : "Hogar"
    },
    {
       "id": 2,
@@ -16,18 +16,18 @@
       "price": 13,
       "discount": 15,
       "image": "img-macbook-pro-2019.jpg",
-      "category": "in-sale",
-      "categoria" : "electronica"
+      "state": "in-sale",
+      "category" : "electronica"
    },
    {
       "id": 3,
       "name": "Samsung Galaxy S10",
       "price": 72999,
       "discount": 25,
-      "category": "in-sale",
+      "state": "in-sale",
       "description": "Experiencia visual excepcional. Mirá tus series y películas favoritas con la mejor definición.Tendrás colores brillantes y detalles precisos en todos tus contenidos.Disfrutá aún más del mejor entretenimiento gracias a su vasta pantalla y ángulos de visión amplios.",
       "image": "img-samsung-galaxy-s10.jpg",
-      "categoria" : "electronica"
+      "category" : "electronica"
    },
    {
       "id": 4,
@@ -36,8 +36,8 @@
       "price": null,
       "discount": null,
       "image": "img-heladera-whirpool.jpg",
-      "category": "",
-      "categoria" : "Hogar"
+      "state": "",
+      "categoriy": "Hogar"
    },
    {
       "id": 6,
@@ -46,8 +46,8 @@
       "price": 20999,
       "discount": 12,
       "image": "img-aire-acondicionado.jpg",
-      "category": "in-sale",
-      "categoria" : "Hogar"
+      "state": "in-sale",
+      "category" : "Hogar"
    },
    {
       "id": 7,
@@ -56,8 +56,8 @@
       "price": 36700,
       "discount": 5,
       "image": "img-laptop-lenovo.jpg",
-      "category": "in-sale",
-      "categoria" : "electronica"
+      "state": "in-sale",
+      "category" : "electronica"
    },
    {
       "id": 8,
@@ -66,8 +66,8 @@
       "price": 148000,
       "discount": 2,
       "image": "img-iphone-11.jpg",
-      "category": "in-sale",
-      "categoria" : "electronica"
+      "state": "in-sale",
+      "category" : "electronica"
    },
    {
       "id": 9,
@@ -76,8 +76,8 @@
       "price": 4000,
       "discount": 0,
       "image": "img-apple-magic-keyboard.jpg",
-      "category": "visited",
-      "categoria" : "electronica"
+      "state": "visited",
+      "category" : "electronica"
    },
    {
       "id": 10,
@@ -86,8 +86,8 @@
       "price": 1200,
       "discount": 10,
       "image": "img-mouse-logitech.jpg",
-      "category": "visited",
-      "categoria" : "electronica"
+      "state": "visited",
+      "category" : "electronica"
    },
    {
       "id": 11,
@@ -96,8 +96,8 @@
       "price": 29990,
       "discount": 12,
       "image": "img-parlante-bose.jpg",
-      "category": "visited",
-      "categoria" : "musica"
+      "state": "visited",
+      "category" : "musica"
    },
    {
       "id": 12,
@@ -106,8 +106,8 @@
       "price": 32990,
       "discount": 0,
       "image": "img-home-theater-sony.jpg",
-      "category": "visited",
-      "categoria" : "musica"
+      "state": "visited",
+      "category" : "musica"
    },
    {
       "id": 13,
@@ -116,8 +116,8 @@
       "price": 34990,
       "discount": 0,
       "image": "img-tv-samsung-smart.jpg",
-      "category": "visited",
-      "categoria" : "electronica"
+      "state": "visited",
+      "category" : "electronica"
    },
    {
       "id": 14,
@@ -126,18 +126,18 @@
       "price": 10999,
       "discount": 5,
       "image": "img-sony-blueray.jpg",
-      "category": "visited",
-      "categoria" : "electronica"
+      "state": "visited",
+      "category" : "electronica"
    },
    {
       "id": 16,
       "name": "Sony Srs-xb12 Parlante Bluetooth Portátil",
       "price": 4699,
       "discount": 5,
-      "category": "in-sale",
+      "state": "in-sale",
       "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
       "image": "img-parlante-sony.jpg",
-      "categoria" : "musica"
+      "category" : "musica"
    },
    {
       "id": 17,
@@ -146,6 +146,6 @@
       "price": 21212,
       "discount": 12121,
       "image": "default-image.png",
-      "category": ""
+      "state": ""
    }
 ]

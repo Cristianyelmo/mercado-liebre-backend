@@ -17,46 +17,40 @@
 				<ul>
 
 					<li><a href="/products/">Todos los Productos</a></li>
-	<% if (minmax) { %>
-	 
-		<li><a href="/products/ordenar/min">Menor Precio</a></li>
-		<li><a href="/products/ordenar/max">Mayor Precio</li>
-	<% } %>
+					<div class="flexbox_caja_filtro">
 
-	<% if (!minmax && ofertas === false) { %>
-	 
-		<li><a href="/products/filtros/ultimamin">Menor Precio Ultima visita</a></li>
-		<li><a href="/products/filtros/ultimamax">Mayor Precio Ultima visita</li>
-	<% } %>
+					<div class="caja_filtro">
+					<h2>Precio</h2>
 
-	<% if (ofertas) { %>
+					<li><a href="/products?order=desc" style="color:<%= queries.order === 'desc' && " white" %>;background-color:<%= queries.order === 'desc' && " black" %>;background-color:<%= queries.order === 'desc' && " black" %>;padding:<%= queries.order === 'desc' && " 4px" %>">Mayor precio</a></li>
+					<li><a href="/products?order=asc" style="color:<%= queries.order === 'asc' && " white" %>;background-color:<%= queries.order === 'asc' && " black" %> ;padding:<%= queries.order === 'asc' && " 4px" %>">Menor precio</a></li>
+				</div>
+				<div class="caja_filtro">
+					<h2>Estado</h2>
+
+					<li><a href="/products?state=in-sale" style="color:<%= queries.state === 'in-sale' && " white" %>;background-color:<%= queries.state === 'in-sale' && " black" %>;padding:<%= queries.state === 'in-sale' && " 4px" %>">Ofertas</a></li>
+					<li><a href="/products?state=visited" style="color:<%= queries.state === 'visited' && " white" %>;background-color:<%= queries.state === 'visited' && " black" %>;padding:<%= queries.state === 'visited' && " 4px" %>">Ultimas ventas</a></li>
+				</div>
+				<div class="caja_filtro">
+					<h2>Categoria</h2>
+
+					<li><a href="/products?category=hogar" style="color:<%= queries.category === 'hogar' && " white" %>;background-color:<%= queries.category === 'hogar' && " black" %>;padding:<%= queries.category === 'hogar' && " 4px" %>">Hogar</a></li>
+					<li><a href="/products?category=musica" style="color:<%= queries.category === 'musica' && " white" %>;background-color:<%= queries.category === 'musica' && " black" %>;padding:<%= queries.category === 'musica' && " 4px" %>">Musica</a></li>
+					<li><a href="/products?category=electronica" style="color:<%= queries.category === 'electronica' && " white" %>;background-color:<%= queries.category === 'electronica' && " black" %>;padding:<%= queries.category === 'electronica' && " 4px" %>">Elctronica</a></li>
+	
+				</div>
 	 
-		<li><a href="/products/filtros/filtromin">Menor Precio Ofertas</a></li>
-		<li><a href="/products/filtros/filtromax">Mayor Precio Ofertas</li>
-	<% } %>
-	 
-				
+			</div>
 			
 						
 				
 						
 				
-						<li><a href="/products/filtros/ultima">Ultima visita</li>
+						
 
 
 
-							<li><a href="/products/filtros/ofertas">Ofertas</li>
-
-
-								
-	
-
-
-
-								
-							<li><a href="/products/filtros/hogar">Hogar</li>
-								<li><a href="/products/filtros/musica">Musica</li>
-									<li><a href="/products/filtros/electronica">Electronica</li>
+							
 				</ul>
 			</div>
 		
@@ -70,7 +64,7 @@
 									<img src="/images/products/<%= image %> " alt="imagen de producto">
 								</figure>
 								<article class="product-box_data">
-									<h2><%= price %> </h2>
+									<h2><%= price%> </h2>
 									<span>$<%= discount %>  OFF</span>
 									<p><%= name %> </p>
 									<i class="fas fa-truck"></i>

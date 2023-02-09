@@ -19,9 +19,7 @@ router.get('/detail/:id', productsController.detail);
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', productsController.edit); 
 router.put('/:id', productsController.update); 
-router.get('/ordenar/:type', productsController.filtrarOrden);
 
-router.get('/filtros/:intento',productsController.Uvisita)
 
 
 
